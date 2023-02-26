@@ -1,2 +1,2 @@
 @echo off
-findstr /i "%1"
+findstr /i "%*"
