@@ -7,14 +7,14 @@ if "%1"=="" (
     echo     %0 tempDir eng+equ
     echo     %0 tempDir eng
 ) else (
-    if not exist "%1" mkdir "%1"
+    if not exist "%~1" mkdir "%~1"
     if "%2"=="" (
         for /F "tokens=*" %%x in ('more') do (
-            tesseract "%%x" "%1/%%x.txt" --oem 3 --psm 6 -c preserve_interword_spaces=1 -l eng+equ
+            tesseract "%%x" "%~1/%%x.txt" --oem 3 --psm 6 -c preserve_interword_spaces=1 -l eng+equ
         )
     ) else (
         for /F "tokens=*" %%x in ('more') do (
-            tesseract "%%x" "%1/%%x.txt" --oem 3 --psm 6 -c preserve_interword_spaces=1 -l %2
+            tesseract "%%x" "%~1/%%x.txt" --oem 3 --psm 6 -c preserve_interword_spaces=1 -l %2
         )
     )
 )
